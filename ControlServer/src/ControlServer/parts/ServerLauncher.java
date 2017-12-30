@@ -7,7 +7,7 @@ public class ServerLauncher
 	{
 	    ControlServer cServer = new ControlServer();
 	    cServer.run();
-	    
+	    System.out.println("Server closed.");
 	}
 
 }
