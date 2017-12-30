@@ -7,7 +7,7 @@ import ControlServer.parts.Locomotive;
 
 public class LocomotivePacket
 {
-    private static Map <String, Locomotive> locoMap = new TreeMap<String, Locomotive> ();
+    public static Map <String, Locomotive> locoMap = new TreeMap<String, Locomotive> ();
     private static final String LOCOMOTIVE_PACKET ="locomotive-packet";
     
     public static void addLocomotive(String packetcontent[])

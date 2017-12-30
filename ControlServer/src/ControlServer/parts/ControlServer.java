@@ -6,6 +6,7 @@ import java.net.DatagramSocket;
 import java.net.SocketException;
 
 import ControlServer.packets.LocomotivePacket;
+import ControlServer.packets.RemotePacket;
 
 public class ControlServer 
 {
@@ -72,7 +73,7 @@ public class ControlServer
             }
             else if (results[0].equals(REMOTE_PACKET))
             {
-                
+                RemotePacket.processRemoteRequest(results);
             }
         }
         
