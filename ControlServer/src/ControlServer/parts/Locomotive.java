@@ -12,7 +12,7 @@ public class Locomotive
     
     /**
      * creates a new locomotive object with the given string as name and zero for direction and speed
-     * @param name
+     * @param name the name as string 
      */
     public Locomotive (String name)
     {
