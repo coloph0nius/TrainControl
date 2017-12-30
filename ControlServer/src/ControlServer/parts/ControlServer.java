@@ -13,28 +13,43 @@ public class ControlServer
     private static final int SERVERPORT = 4711;
     private byte[] buf = new byte[1024];
     
-    public ControlServer() throws SocketException
+    public ControlServer()
     {
-        socket = new DatagramSocket(SERVERPORT);
-        System.out.println("server started on port "+ SERVERPORT + "...");
+        try
+        {
+            socket = new DatagramSocket(SERVERPORT);
+            System.out.println("server started on port "+ SERVERPORT + "...");
+        } 
+        catch (SocketException e)
+        {
+            e.printStackTrace();
+        }
+        
     }
     
-    public void run() throws IOException
+    public void run()
     {
         running = true;
         while (running)
         {
             DatagramPacket packet = new DatagramPacket (buf, buf.length);
-            socket.receive(packet);
-            InetAddress address = packet.getAddress();
-            int port = packet.getPort();
-            String received = new String (packet.getData(), 0, packet.getLength());
-            System.out.printf("Received from %s, Port: %d. Message: %s\n", address.toString(), port, received);
-            
-            if (received.equals("end"))
+            try
             {
-                running = false;
+                socket.receive(packet);
+                InetAddress address = packet.getAddress();
+                int port = packet.getPort();
+                String received = new String (packet.getData(), 0, packet.getLength());
+                System.out.printf("Received from %s, Port: %d. Message: %s\n", address.toString(), port, received);
+                if (received.equals("end"))
+                {
+                    running = false;
+                }
+            } 
+            catch (IOException e)
+            {
+                e.printStackTrace();
             }
+           
         }
         socket.close();
         
