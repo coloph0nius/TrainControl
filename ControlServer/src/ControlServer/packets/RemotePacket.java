@@ -15,7 +15,6 @@ public class RemotePacket
         int length = packetcontent.length;
         if (length == 2 && packetcontent[0].equals(REMOTE_PACKET) && packetcontent[1].equals(REQUEST_LIST))
         {
-            System.out.println("send locoMap");
             String message = NO_LOCO;
             if(!LocomotivePacket.locoMap.isEmpty())
             {
@@ -26,7 +25,6 @@ public class RemotePacket
                 }
             }
             SendDatagramPacket.sendPacket(message, address, REMOTE_PORT);
-           
            
         }
         else if (length == 5 && packetcontent[1].equals(SET_LOCO))
