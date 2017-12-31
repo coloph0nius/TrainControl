@@ -37,15 +37,15 @@ public class Locomotive
      */
     public void setSpeed(int direction, int speed)
     {
-        _direction = direction;
-        if (0 <= speed && speed <= 255)
+        
+       
+        if ( 0 <= direction && direction <= 2 && 0 <= speed && speed <= 255)
         {
+            _direction = direction;
             _speed = speed;
             SendDatagramPacket.sendPacket(_direction + ";" + _speed, _address, LOCO_PORT);
         }
         else _speed = 0;
-        
-        
         
     }
     
