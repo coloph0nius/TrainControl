@@ -8,6 +8,12 @@ import java.net.SocketException;
 
 public class SendDatagramPacket
 {
+    /**
+     * Sends a single UDP Datagram
+     * @param messageasstring the message/ content of the packet
+     * @param address the destination address
+     * @param port the remote port 
+     */
     public static void sendPacket(String messageasstring, InetAddress address, int port)
     {
         byte [] message = messageasstring.getBytes();
