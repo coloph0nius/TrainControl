@@ -1,5 +1,6 @@
 package ControlServer.parts;
 
+import ControlServer.packets.SendDatagramPacket;
 
 import java.net.InetAddress;
 
@@ -15,6 +16,8 @@ public class Locomotive
     private int _speed;
     private InetAddress _address;
     
+    private static final int LOCO_PORT = 4713;
+    
     /**
      * creates a new locomotive object with the given string as name and zero for direction and speed
      * @param name the name as string 
@@ -28,7 +31,7 @@ public class Locomotive
     }
     
     /**
-     * Sets direction and speed of the locomotive
+     * Sets direction and speed of the locomotive, and sends new values to locomotive
      * @param direction the direction
      * @param speed the pwm speed
      */
@@ -38,8 +41,11 @@ public class Locomotive
         if (0 <= speed && speed <= 255)
         {
             _speed = speed;
+            SendDatagramPacket.sendPacket(_direction + ";" + _speed, _address, LOCO_PORT);
         }
         else _speed = 0;
+        
+        
         
     }
     
