@@ -1,4 +1,8 @@
 package ControlServer.parts;
+
+import java.net.DatagramPacket;
+import java.net.InetAddress;
+
 /**
  * Class which holds the information about a locomotive
  * @author Arff
@@ -9,16 +13,18 @@ public class Locomotive
     private String _name;
     private int _direction;
     private int _speed;
+    private InetAddress _address;
     
     /**
      * creates a new locomotive object with the given string as name and zero for direction and speed
      * @param name the name as string 
      */
-    public Locomotive (String name)
+    public Locomotive (String name, DatagramPacket packet)
     {
         _name = name;
         _direction = 0;
         _speed = 0;
+        _address = packet.getAddress();
     }
     
     /**
@@ -47,6 +53,7 @@ public class Locomotive
         return data;
         
     }
+    
     /**
      * returns the name of the locomotive
      * @return returns name as string
@@ -54,5 +61,14 @@ public class Locomotive
     public String getName()
     {
         return _name;
+    }
+    
+    /**
+     * returns the IP address of the locomotive
+     * @return returns IP as INetAddress
+     */
+    public InetAddress getIP()
+    {
+        return _address;
     }
 }
