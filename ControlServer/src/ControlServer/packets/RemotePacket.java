@@ -10,6 +10,11 @@ public class RemotePacket
     private static final String NO_LOCO = "no locomotives registered yet";
     private static final int REMOTE_PORT = 4712;
     
+    /**
+     * This method processes a remote-packet, it either sends a list of all registered locomotives to the requesting client, or sets the speed value of a locomotive
+     * @param packetcontent the content of the received packet
+     * @param address the address of the requesting client
+     */
     public static void processRemoteRequest(String packetcontent[], InetAddress address)
     {
         int length = packetcontent.length;
