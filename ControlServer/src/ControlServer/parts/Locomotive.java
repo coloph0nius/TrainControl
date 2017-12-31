@@ -45,7 +45,11 @@ public class Locomotive
             _speed = speed;
             SendDatagramPacket.sendPacket(_direction + ";" + _speed, _address, LOCO_PORT);
         }
-        else _speed = 0;
+        else 
+        {
+            _direction = 0;
+            _speed = 0;
+        }
         
     }
     
