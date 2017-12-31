@@ -1,6 +1,6 @@
 package ControlServer.parts;
 
-import java.net.DatagramPacket;
+
 import java.net.InetAddress;
 
 /**
@@ -19,12 +19,12 @@ public class Locomotive
      * creates a new locomotive object with the given string as name and zero for direction and speed
      * @param name the name as string 
      */
-    public Locomotive (String name, DatagramPacket packet)
+    public Locomotive (String name, InetAddress address)
     {
         _name = name;
         _direction = 0;
         _speed = 0;
-        _address = packet.getAddress();
+        _address = address;
     }
     
     /**

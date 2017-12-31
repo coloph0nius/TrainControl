@@ -69,11 +69,11 @@ public class ControlServer
         {
             if (results[0].equals(LOCOMOTIVE_PACKET))
             {
-                LocomotivePacket.addLocomotive(results, packet);
+                LocomotivePacket.addLocomotive(results, packet.getAddress());
             }
             else if (results[0].equals(REMOTE_PACKET))
             {
-                RemotePacket.processRemoteRequest(results);
+                RemotePacket.processRemoteRequest(results, packet.getAddress());
             }
         }
         
