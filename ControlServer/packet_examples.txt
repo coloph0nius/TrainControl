@@ -1,0 +1,12 @@
+locomotive-packet
+Stainz I
+
+
+remote-packet
+request-list
+
+remote-packet
+set-loco
+LocoName
+Direction
+Speed
