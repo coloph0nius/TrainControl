@@ -39,7 +39,7 @@ public class Locomotive
     {
         
        
-        if ( 0 <= direction && direction <= 2 && 0 <= speed && speed <= 256)
+        if ( 0 <= direction && direction <= 2 && 0 <= speed && speed <= 1023)
         {
             _direction = direction;
             _speed = speed;
